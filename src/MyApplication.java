@@ -1,4 +1,5 @@
 import controllers.interfaces.IMovieController;
+import models.Movie;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -56,7 +57,8 @@ public class MyApplication {
         System.out.println("Please enter a movie review: ");
         String review = scanner.next();
 
-        String response = controller.createMovie(name, genre, age_res, rating, review);
+        Movie movie = new Movie(name, genre, age_res, rating, review);
+        String response = controller.createMovie(movie);
         System.out.println(response);
     }
 
